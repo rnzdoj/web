@@ -17,7 +17,8 @@ export const Registration = () => {
       method: 'post',
       url: 'https://blog-api-gql.herokuapp.com/users',
       headers: { 
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       },
       data: { 
         user: {
@@ -85,9 +86,9 @@ export const LogIn = () => {
     var config = {
       method: 'post',
       url: 'https://blog-api-gql.herokuapp.com//users/sign_in',
-      withCredentials: true,
       headers: { 
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       },
       data: { user: credentials }
     }
