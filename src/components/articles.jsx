@@ -1,21 +1,35 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import ARTICLES from "../graphql/queries/articles";
+import { Loader } from "./loader";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Articles  = () => {
-  const { loading, error, data } = useQuery(ARTICLES);
+  const { loading, error, data } = useQuery(ARTICLES, {
+    variables: {
+      first: 10
+    }
+  });
 
-  if (loading) return <div class="spinner-grow text-success" role="status"></div>;
-  if (error) return <p>Error : {error}(</p>;
+  useEffect(() => {
+    if(data) {
+      setArticles(data.nodes)
+    }
+  }, [data, loading, error])
 
+  const [articles, setArticles] = useState([]) 
+
+  if (loading) return <Loader />
+  if (error) return <p>Error : {console.log(error)}</p>;
 
   return (
     <div className="mt-5">
-      <ul class="list-group">
+      <ul className="list-group">
         {
-          data.articles.map(({ id, body }) => (
+          articles.map(({ id, body }) => (
             <div key={id}>
-              <li class="list-group-item">{body}</li>
+              <li className="list-group-item">{body}</li>
             </div>
           ))
         }

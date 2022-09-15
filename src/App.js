@@ -1,14 +1,14 @@
 import React from 'react';
-import Nav from './components/Nav';
+import Nav from './components/nav';
 
 import CoreRoute from './core/core.route';
 
 function App() {
   return (
       <div className='container'>
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-4">Simple Blog Application</h1>
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            <h1 className="display-4">Simple Blog Application</h1>
           </div>
         </div>
 

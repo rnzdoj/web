@@ -10,6 +10,7 @@ RUN npm install -g -y nodemon
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 4000
+ENV PORT=4000
 
 CMD ["npm", "start"]
